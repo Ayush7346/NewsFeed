@@ -18,9 +18,12 @@ public class FeedItem {
     private Long user_id;
     private String content;
     private String time;
-    @OneToMany(mappedBy = "feedItem" ,cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "feedItem" )
     @Fetch(FetchMode.JOIN)
     private List<Comment> comments;
+
+
     private int upvote;
     private int downvote;
 

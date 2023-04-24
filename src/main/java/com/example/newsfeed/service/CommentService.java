@@ -27,9 +27,11 @@ public class CommentService {
         FeedItem feedItem = newsFeedRepo.findById(feed_id).get();
 
 
-        Comment comment = new Comment(comment_txt , accountManager.getCurrentUser().getUser_id() );
+        Comment comment = new Comment(comment_txt , accountManager.getCurrentUser().getUser_id() , feedItem );
 
         feedItem.getComments().add(comment);
+
+        System.out.print(feedItem.getComments().get(0).getComment_txt());
         commentRepo.save(comment);
 
     }

@@ -1,9 +1,6 @@
 package com.example.newsfeed;
 
-import com.example.newsfeed.service.AccountManager;
-import com.example.newsfeed.service.CommentService;
-import com.example.newsfeed.service.NewsFeedService;
-import com.example.newsfeed.service.UserService;
+import com.example.newsfeed.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,14 +18,18 @@ public class NewsFeedApplication {
     @Autowired
     static CommentService commentService;
 
+    @Autowired
+            static ReplyService replyService;
+
     NewsFeedApplication(AccountManager accountManager ,UserService userService ,NewsFeedService newsFeedService
-    ,CommentService commentService
+    ,CommentService commentService , ReplyService replyService
     ){
 
         NewsFeedApplication.accountManager = accountManager;
         NewsFeedApplication.userService = userService;
         NewsFeedApplication.newsFeedService  = newsFeedService;
         NewsFeedApplication.commentService= commentService;
+        NewsFeedApplication.replyService = replyService;
     }
     public static void main(String[] args) {
         SpringApplication.run(NewsFeedApplication.class, args);
@@ -41,7 +42,14 @@ public class NewsFeedApplication {
         System.out.print(check);
 
 //        newsFeedService.createPost("My First Post");
-        commentService.add_comment(1,"Ayush first comment");
+//    commentService.add_comment(1,"Ayush first comment");
+try{
+    replyService.reply(2,"first reply on comment id 2");
+
+}
+catch (Exception e){
+    System.out.print(e);
+}
 
     }
 }
