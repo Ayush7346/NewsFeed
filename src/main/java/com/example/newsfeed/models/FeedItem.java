@@ -15,7 +15,7 @@ public class FeedItem {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long feeditem_id;
-    private Long user_id;
+    private Long userId;
     private String content;
     private String time;
 
@@ -45,7 +45,7 @@ public class FeedItem {
     }
 
     public FeedItem(Long user_id, String content, String time) {
-        this.user_id = user_id;
+        this.userId = user_id;
         this.content = content;
         this.time = time;
 
@@ -67,7 +67,35 @@ public class FeedItem {
 
     }
 
+    public Long getFeeditem_id() {
+        return feeditem_id;
+    }
 
+    public void setFeeditem_id(Long feeditem_id) {
+        this.feeditem_id = feeditem_id;
+    }
 
+    public Long getUser_id() {
+        return userId;
+    }
 
+    public void setUser_id(Long user_id) {
+        this.userId = user_id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }

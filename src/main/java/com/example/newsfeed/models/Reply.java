@@ -9,7 +9,7 @@ public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long reply_id;
-    private Long user_id;
+    private Long userId;
     private String reply_text;
 
     @ManyToOne
@@ -25,11 +25,11 @@ public class Reply {
     }
 
     public Long getUser_id() {
-        return user_id;
+        return userId;
     }
 
     public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+        this.userId = user_id;
     }
 
     public String getReply_text() {
@@ -50,7 +50,7 @@ public class Reply {
 
     public Reply(Long user_id, String reply_text , Comment comment){
 
-        this.user_id = user_id;
+        this.userId = user_id;
         this.reply_text = reply_text;
         this.comment = comment;
 

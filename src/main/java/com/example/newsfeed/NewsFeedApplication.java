@@ -41,15 +41,18 @@ public class NewsFeedApplication {
         boolean check = accountManager.login();
         System.out.print(check);
 
+//        newsFeedService.createPost("Luv's Firstlu Post");
+
 //        newsFeedService.createPost("My First Post");
-//    commentService.add_comment(1,"Ayush first comment");
-try{
-    replyService.reply(2,"first reply on comment id 2");
+//   commentService.add_comment(1,"Ayush second comment");
+//try{
+//    replyService.reply(2,"first reply on comment id 2");
+//
+//}
+//catch (Exception e){
+//    System.out.print(e);
+//}
 
-}
-catch (Exception e){
-    System.out.print(e);
-}
-
+        newsFeedService.getNewsFeed();
     }
 }
