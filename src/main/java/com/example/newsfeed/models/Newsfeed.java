@@ -1,8 +1,13 @@
 package com.example.newsfeed.models;
 
-public class Newsfeed {
 
-    private String newsfeed_id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Newsfeed {
+@Id
+    private Long newsfeed_id;
 
 
     public void add_feeditem(){

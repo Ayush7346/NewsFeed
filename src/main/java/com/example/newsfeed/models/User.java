@@ -1,6 +1,8 @@
 package com.example.newsfeed.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +19,20 @@ public class User {
     private String email;
     private String password;
 
-//  @ManyToMany(cascade = CascadeType.ALL) @JoinTable(name = "user_follow", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "follow_id"))
-// private List<Long> follow;
-//
-//
-//    public List<String> getFollow() {
-//        return follow;
-//    }
-//
-//    public void setFollow(List<String> follow) {
-//        this.follow = follow;
-//    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @Fetch(FetchMode.JOIN)
+    @JoinTable(name = "user_follow" , joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "follow_user_id"))
+    private List<User> follow;
+
+
+    public List<User> getFollow() {
+        return follow;
+    }
+
+    public void setFollow(List<User> follow) {
+        this.follow = follow;
+    }
 
     public User(String name , String email , String password){
         this.name = name;
@@ -40,13 +45,7 @@ public class User {
 
    }
 
-    public void followUser(){
 
-    }
-
-    public void unfollowUser(){
-
-    }
 
     public Long getUser_id() {
         return user_id;
