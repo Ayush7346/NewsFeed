@@ -1,7 +1,6 @@
 package com.example.newsfeed.service;
 
 import com.example.newsfeed.models.FeedItem;
-import com.example.newsfeed.models.Newsfeed;
 import com.example.newsfeed.models.User;
 import com.example.newsfeed.repo.NewsFeedRepo;
 import com.example.newsfeed.repo.UserRepo;
@@ -9,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class NewsFeedService {
@@ -57,7 +53,7 @@ public class NewsFeedService {
         Long userId = accountManager.getCurrentUser().getUser_id();
         List<User>  follow_list = userRepo.findById(userId).get().getFollow();
 
-        List<FeedItem> newsFeedList = new ArrayList<>((Collection) new SortService());
+        List<FeedItem> newsFeedList = new ArrayList<>();
 
 
         for(int i = 0; i < follow_list.size(); i++){
@@ -71,6 +67,7 @@ public class NewsFeedService {
                 }
         }
 
+     Collections.sort(newsFeedList , new SortService());
 
         return newsFeedList;
 

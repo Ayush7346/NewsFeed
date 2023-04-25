@@ -41,13 +41,9 @@ public class AccountManager {
 
     }
 
-    public boolean login(){
+    public boolean login(String Enteremail , String password){
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter email");
-        String Enteremail = sc.nextLine();
-        System.out.print("Enter password");
-        String password = sc.nextLine();
+
 
         User user = userRepository.findByEmail(Enteremail);
 
