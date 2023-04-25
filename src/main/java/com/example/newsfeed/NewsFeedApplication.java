@@ -53,6 +53,9 @@ public class NewsFeedApplication {
 //    System.out.print(e);
 //}
 
-        newsFeedService.getNewsFeed();
+//        newsFeedService.getNewsFeed();
+
+//        commentService.upvote(2l);
     }
+
 }

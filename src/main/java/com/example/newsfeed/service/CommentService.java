@@ -35,4 +35,22 @@ public class CommentService {
         commentRepo.save(comment);
 
     }
+
+    public void upvote(Long comment_id){
+
+        Comment comment = commentRepo.findById(comment_id).get();
+        int upvote_value =  comment.getUpvote()+1;
+        comment.setUpvote(upvote_value);
+        commentRepo.save(comment);
+
+    }
+
+    public void downVote(Long comment_id){
+
+        Comment comment = commentRepo.findById(comment_id).get();
+        int downvote_value =  comment.getDownvote()+1;
+        comment.setDownvote(downvote_value);
+        commentRepo.save(comment);
+
+    }
 }
